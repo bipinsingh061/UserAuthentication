@@ -1,0 +1,29 @@
+extends base
+
+block vars
+    -var title = "Dashboard"
+
+block body
+    h1 Dashboard
+
+    form(action="/logout" method="post")
+        input(type="submit" value="logout")
+        
+
+    p.
+        Welcome to your DashBoard! you are now logged in 
+    p.      
+        Note :  your Session Expires after 30 mins of login
+    h1 Hi #{name} 
+
+    form(method="post")
+        span Whats on your mind ? :
+        input(type="text" , name="status",required=true)
+        br
+        input(type="submit")
+
+    p Posts  :   
+
+    
+        each post in posts
+            li= post.email+ ' : ' + post.status
